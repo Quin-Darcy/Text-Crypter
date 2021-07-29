@@ -91,29 +91,51 @@ def extract_key(msg, file_path):
 
     return key
 
+
+#===========================================================================#
+#                               Error Message                               #
+#===========================================================================#
+def check_error(args):
+    if (len(args) != 4): 
+        print('Usage: crypter [OPTION] SOURCE DESTINATION\n')
+        print('Mandatory options:')
+        print('     e       encrypt SOURCE. New file saved to DESTINATION.')
+        print('     d       decrypt SOURCE. New file saved to DESTINATION.')
+        return False
+    elif(args[1] != 'e' and args[1] != 'd'):
+        print('Usage: crypter [OPTION] SOURCE DESTINATION\n')
+        print('Mandatory options:')
+        print('     e       encrypt SOURCE. New file saved to DESTINATION.')
+        print('     d       decrypt SOURCE. New file saved to DESTINATION.')
+        return False
+    else:
+        return True
+
 #===========================================================================#
 #                                   Main                                    #
 #===========================================================================#
-
 def main(args):
-    flag = str(args[1])
-    file_path = str(args[2])
-    new_file = str(args[3])
+    no_error = check_error(args)
 
-    if (flag == 'e'):
-        msg = get_msg(file_path)
-        key = FLOTP_KEY(msg)
-        enc_msg = FLOTP_E(key, msg)
-        write_file(key, enc_msg, new_file)
-    elif(flag == 'd'):
-        msg = get_msg(file_path)
-        key = extract_key(msg, file_path)
-        msg = get_msg(file_path)
-        bin_msg = ''.join(format(ord(i), '08b') for i in msg)
-        dec_msg = FLOTP_D(key, bin_msg)
-        file = open(new_file, 'w')
-        file.write(dec_msg)
-        file.close()
+    if (no_error):
+        flag = str(args[1])
+        file_path = str(args[2])
+        new_file = str(args[3])
+
+        if (flag == 'e'):
+            msg = get_msg(file_path)
+            key = FLOTP_KEY(msg)
+            enc_msg = FLOTP_E(key, msg)
+            write_file(key, enc_msg, new_file)
+        elif(flag == 'd'):
+            msg = get_msg(file_path)
+            key = extract_key(msg, file_path)
+            msg = get_msg(file_path)
+            bin_msg = ''.join(format(ord(i), '08b') for i in msg)
+            dec_msg = FLOTP_D(key, bin_msg)
+            file = open(new_file, 'w')
+            file.write(dec_msg)
+            file.close()
 
 if __name__ == '__main__':
     main(sys.argv)
