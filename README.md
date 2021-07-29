@@ -1,6 +1,9 @@
 This program is written in Python 3.
 It uses the following libraries: sys, math, random.
 
+OPTIONAL: Once program is cloned, and permissions are changed to execute, create alias by including
+"alias crypter='./path/to/file/main.py"
+
 Example Usage:
 
 crypter [OPTION] [SOURCE FILE] [DESTINATION FILE]
