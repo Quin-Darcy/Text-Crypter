@@ -6,7 +6,7 @@ OPTIONAL: Once program is cloned, and permissions are changed to execute, create
 
 Example Usage:
 
-crypter [OPTION] [SOURCE FILE] [DESTINATION FILE]
+crypter [OPTION] SOURCE DESTINATION
 
 Letting test.txt be a file we want to encrypt, then we can use
 
