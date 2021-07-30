@@ -1,16 +1,15 @@
+Linux Installation:
+  cd Text-Crypter
+  chmod +x install.sh
+  ./install.sh
+  
+Windows Installation: TBA
+
 This program is written in Python 3.
 It uses the following libraries: sys, math, random.
 
-Install by running install.py
+Usage: crypter [OPTION] SOURCE DESTINATION
 
-Example Usage:
-
-crypter [OPTION] SOURCE DESTINATION
-
-Letting test.txt be a file we want to encrypt, then we can use
-
-"crypter e test.txt encrypted_test.txt"
-
-Decrypting is simply
-
-"crypter d encrypted_test.txt decrypted_test.txt"
+Required Options:
+  e   encrypt SOURCE. New file saved to DESTINATION
+  d   decrypt SOURCE. New file saved to DESTINATION
