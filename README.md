@@ -1,4 +1,4 @@
-Linux Installation: run "cd Text-Crypter;chmod +x install.sh;./install.sh"
+Linux Installation: run "cd Text-Crypter;chmod +x install.sh;./install.sh". Restart terminal
   
 Windows Installation: TBA
 
