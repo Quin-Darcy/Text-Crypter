@@ -1,4 +1,4 @@
-Linux Installation:
+Linux Installation:\n
   cd Text-Crypter
   chmod +x install.sh
   ./install.sh
